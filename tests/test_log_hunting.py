@@ -28,6 +28,37 @@ class TestSshBruteforce(unittest.TestCase):
         proc = run_py("log_hunting/ssh_bruteforce.py", "-t", "3", "--json", stdin=line * 3)
         self.assertEqual(proc.returncode, 2)
 
+    def test_window_separates_slow_from_burst(self):
+        tpl = "Sep {d:02d} 03:{m:02d}:00 h sshd[1]: Failed password for root from {ip} port 1 ssh2\n"
+        slow = "".join(tpl.format(d=d, m=0, ip="1.1.1.1") for d in range(1, 11))   # 10일에 걸쳐 10회
+        fast = "".join(tpl.format(d=20, m=m, ip="2.2.2.2") for m in range(10))    # 10분 안에 10회
+        logs = slow + fast
+        _, rows = run_json("log_hunting/ssh_bruteforce.py", "--year", "2026", stdin=logs)
+        self.assertEqual({r["ip"] for r in rows}, {"1.1.1.1", "2.2.2.2"})  # 누적 방식: 둘 다 탐지
+        code, rows = run_json("log_hunting/ssh_bruteforce.py", "--year", "2026", "-w", "10", stdin=logs)
+        self.assertEqual(code, 2)
+        self.assertEqual([r["ip"] for r in rows], ["2.2.2.2"])
+        self.assertEqual(rows[0]["burst_window"], "10회/10분")
+        self.assertEqual(rows[0]["burst_detected_at"], "2026-09-20 03:09:00")
+
+    def test_window_sorts_shuffled_input(self):
+        tpl = "Sep 20 03:{m:02d}:00 h sshd[1]: Failed password for root from 3.3.3.3 port 1 ssh2\n"
+        lines = [tpl.format(m=m) for m in range(5)]
+        shuffled = "".join(lines[3:] + lines[:3])  # auth.log → auth.log.1 순서로 합친 상황
+        _, rows = run_json("log_hunting/ssh_bruteforce.py", "--year", "2026", "-t", "5", "-w", "4",
+                           stdin=shuffled)
+        self.assertEqual(rows[0]["burst_detected_at"], "2026-09-20 03:04:00")
+        self.assertEqual(rows[0]["first_seen"], "Sep 20 03:00:00")
+
+    def test_syslog_year_rollover(self):
+        from datetime import datetime
+        from log_hunting.ssh_bruteforce import to_datetime
+        now = datetime(2026, 1, 3, 12, 0, 0)
+        self.assertEqual(to_datetime("Dec 31 23:59:59", now=now).year, 2025)
+        self.assertEqual(to_datetime("Jan  2 00:00:01", now=now).year, 2026)
+        self.assertEqual(to_datetime("Dec 31 23:59:59", year=2020).year, 2020)
+        self.assertEqual(to_datetime("2026-09-26T03:20:01"), datetime(2026, 9, 26, 3, 20, 1))
+
 
 class TestWebAttackHunter(unittest.TestCase):
     def test_categories(self):
