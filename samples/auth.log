@@ -1,0 +1,25 @@
+Sep 26 03:10:01 web01 CRON[1201]: pam_unix(cron:session): session opened for user root by (uid=0)
+Sep 26 03:12:44 web01 sshd[2201]: Accepted publickey for deploy from 10.0.0.15 port 51022 ssh2: RSA SHA256:abc
+Sep 26 03:20:01 web01 sshd[2310]: Failed password for root from 203.0.113.50 port 40001 ssh2
+Sep 26 03:20:03 web01 sshd[2310]: Failed password for root from 203.0.113.50 port 40002 ssh2
+Sep 26 03:20:05 web01 sshd[2311]: Failed password for invalid user admin from 203.0.113.50 port 40003 ssh2
+Sep 26 03:20:07 web01 sshd[2311]: Failed password for invalid user oracle from 203.0.113.50 port 40004 ssh2
+Sep 26 03:20:09 web01 sshd[2312]: Failed password for invalid user test from 203.0.113.50 port 40005 ssh2
+Sep 26 03:20:11 web01 sshd[2312]: Failed password for invalid user ubuntu from 203.0.113.50 port 40006 ssh2
+Sep 26 03:20:13 web01 sshd[2313]: Failed password for root from 203.0.113.50 port 40007 ssh2
+Sep 26 03:20:15 web01 sshd[2313]: Failed password for root from 203.0.113.50 port 40008 ssh2
+Sep 26 03:20:17 web01 sshd[2314]: Failed password for invalid user postgres from 203.0.113.50 port 40009 ssh2
+Sep 26 03:20:19 web01 sshd[2314]: Failed password for invalid user git from 203.0.113.50 port 40010 ssh2
+Sep 26 03:20:21 web01 sshd[2315]: Failed password for root from 203.0.113.50 port 40011 ssh2
+Sep 26 03:20:23 web01 sshd[2315]: Failed password for invalid user admin from 203.0.113.50 port 40012 ssh2
+Sep 26 03:20:30 web01 sshd[2316]: Accepted password for admin from 203.0.113.50 port 40013 ssh2
+Sep 26 04:01:10 web01 sshd[2401]: Invalid user support from 198.51.100.23 port 50111
+Sep 26 04:01:11 web01 sshd[2401]: Failed password for invalid user support from 198.51.100.23 port 50111 ssh2
+Sep 26 04:01:15 web01 sshd[2402]: Failed password for invalid user guest from 198.51.100.23 port 50112 ssh2
+Sep 26 04:01:19 web01 sshd[2403]: Failed password for invalid user user1 from 198.51.100.23 port 50113 ssh2
+Sep 26 04:01:23 web01 sshd[2404]: Failed password for invalid user backup from 198.51.100.23 port 50114 ssh2
+Sep 26 04:01:27 web01 sshd[2405]: Failed password for invalid user ftp from 198.51.100.23 port 50115 ssh2
+Sep 26 04:01:31 web01 sshd[2406]: Failed password for invalid user www from 198.51.100.23 port 50116 ssh2
+Sep 26 05:30:00 web01 sshd[2501]: Failed password for deploy from 10.0.0.15 port 51100 ssh2
+Sep 26 05:30:05 web01 sshd[2501]: Accepted password for deploy from 10.0.0.15 port 51100 ssh2
+Sep 26 06:00:00 web01 sudo:    admin : TTY=pts/1 ; PWD=/home/admin ; USER=root ; COMMAND=/bin/bash

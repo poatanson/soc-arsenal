@@ -1,0 +1,4 @@
+# 알려진 악성 해시 목록 (한 줄에 하나, # 주석 가능, CSV 피드도 해시만 뽑아서 사용)
+275a021bbfb6489e54d471899f7db9d1663fc695ec2fe2a2c4538aabf651fd0f,EICAR-test
+44d88612fea8a8f36de82e1278abb02f,EICAR-test-md5
+487502c51f69f8136a1cd1fe1259e9ff60e5c17cc9c34baacb748b17de7c22b0,SilentFox-dropper (sample)

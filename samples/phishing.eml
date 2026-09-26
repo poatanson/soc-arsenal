@@ -1,0 +1,48 @@
+Return-Path: <bounce-9912@mailer.bulk-sender.xyz>
+Received: from mail.bulk-sender.xyz (mail.bulk-sender.xyz [185.220.101.45])
+	by mx.example.com (Postfix) with ESMTPS id 4F1A2B3C
+	for <victim@example.com>; Sat, 26 Sep 2026 07:59:58 +0900 (KST)
+Received: from [10.8.0.3] (unknown [45.133.1.20])
+	by mail.bulk-sender.xyz (Postfix) with ESMTPSA id 99AA11
+	for <victim@example.com>; Fri, 25 Sep 2026 22:59:50 +0000 (UTC)
+Authentication-Results: mx.example.com;
+	spf=fail (sender IP is 185.220.101.45) smtp.mailfrom=mailer.bulk-sender.xyz;
+	dkim=none (message not signed);
+	dmarc=fail action=quarantine header.from=paypal.com
+Received-SPF: Fail (mx.example.com: domain of mailer.bulk-sender.xyz does not designate 185.220.101.45 as permitted sender)
+From: "PayPal Security <service@paypal.com>" <service@secure-paypa1.com>
+Reply-To: recovery.team@protonmail.com
+To: victim@example.com
+Subject: [Urgent] Your account has been limited
+Date: Sat, 26 Sep 2026 07:59:45 +0900
+Message-ID: <20260926075945.12345@secure-paypa1.com>
+MIME-Version: 1.0
+Content-Type: multipart/mixed; boundary="BOUNDARY_OUTER"
+
+--BOUNDARY_OUTER
+Content-Type: multipart/alternative; boundary="BOUNDARY_ALT"
+
+--BOUNDARY_ALT
+Content-Type: text/plain; charset="utf-8"
+
+Your account has been limited. Verify now: https://login-microsoftonline.support/auth/signin?id=8812
+
+--BOUNDARY_ALT
+Content-Type: text/html; charset="utf-8"
+
+<html><body>
+<p>Your account has been limited.</p>
+<p><a href="https://login-microsoftonline.support/auth/signin?id=8812">https://www.paypal.com/security</a></p>
+<p><a href="https://www.paypal.com/help">Help Center</a></p>
+</body></html>
+
+--BOUNDARY_ALT--
+
+--BOUNDARY_OUTER
+Content-Type: application/octet-stream; name="Invoice_2026.pdf.exe"
+Content-Disposition: attachment; filename="Invoice_2026.pdf.exe"
+Content-Transfer-Encoding: base64
+
+VGhpcyBpcyBhIGhhcm1sZXNzIHNhbXBsZSBhdHRhY2htZW50IGZvciBzb2MtYXJzZW5hbCB0ZXN0cy4K
+
+--BOUNDARY_OUTER--

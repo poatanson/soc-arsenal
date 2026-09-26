@@ -1,0 +1,20 @@
+[TLP:CLEAR] Weekly Threat Report - Operation SilentFox
+
+The actor delivered phishing emails from billing@secure-paypa1[.]com linking to
+hxxps://login-microsoftonline[.]support/auth/signin?session=8812 and hxxp://update-check[.]xyz/payload.bin.
+
+C2 infrastructure:
+  - 185.220.101[.]45 (port 443)
+  - 45[.]133[.]1[.]20
+  - cdn-telemetry[.]top
+  - 2001:db8:dead:beef::1
+
+Internal hosts observed beaconing: 10.20.30.40, 192.168.1.15
+
+Dropped files:
+  invoice_2026.docm   MD5: 44d88612fea8a8f36de82e1278abb02f
+  loader.dll          SHA1: 3395856ce81f2b7382dee72602f798b642f14140
+  stage2.exe          SHA256: 275a021bbfb6489e54d471899f7db9d1663fc695ec2fe2a2c4538aabf651fd0f
+
+Exploited vulnerabilities: CVE-2024-3400, cve-2023-4966
+Contact: soc-team(at)example.org

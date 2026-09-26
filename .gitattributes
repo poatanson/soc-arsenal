@@ -1,0 +1,4 @@
+# Windows에서 체크아웃해도 줄바꿈을 LF로 유지 (bash 스크립트가 Linux에서 실행되도록)
+* text=auto eol=lf
+*.pcap binary
+*.bin binary
